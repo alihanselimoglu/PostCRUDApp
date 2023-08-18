@@ -16,8 +16,18 @@
       </div>
       <div class="card">
         <footer class="card-footer">
-          <button class="card-footer-item button is-warning">Edit</button>
-          <button class="card-footer-item button is-danger">Delete</button>
+          <button
+            @click="editPost(post._id)"
+            class="card-footer-item button is-warning"
+          >
+            Edit
+          </button>
+          <button
+            @click="removePost(post._id)"
+            class="card-footer-item button is-danger"
+          >
+            Delete
+          </button>
         </footer>
       </div>
     </div>
@@ -44,8 +54,27 @@ export default {
         console.log(error);
       }
     }
+
+    async function removePost(_id) {
+      const response = await fetch(`${API_URL}/${_id}`, {
+        method: 'DELETE',
+      });
+      getPosts();
+    }
+
+    async function editPost(_id) {
+      router.push({
+        name: 'Update',
+        params: {
+          id: _id,
+        },
+      });
+    }
+
     return {
       posts,
+      removePost,
+      editPost,
     };
   },
 };

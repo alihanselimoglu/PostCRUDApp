@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <a class="navbar-item" href="/">
         <img
           src="@/assets/logo.png"
           width="50"
@@ -30,8 +30,8 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <router-link to="/create" class="button is-dark ">
-              <strong>Create</strong>
+            <router-link to="/create" class="button is-dark is-large">
+              <p>Create Post</p>
             </router-link>
           </div>
         </div>
